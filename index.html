@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Tambo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <h2>Control de Rendimiento de la producción</h2>
+        <div class="form-group">
+            <label for="litros">Cantidad de litros obtenidos:</label>
+            <input type="number" class="form-control" id="litros" placeholder="" name="litros">
+        </div>
+        <div class="form-group">
+            <label for="litrosn">Cantidad de litros no utilizables:</label>
+            <input type="number" class="form-control" id="litrosn" placeholder="" name="litrosn">
+        </div>
+        <div class="form-group">
+            <label for="solidos">Porcentaje de sólidos:</label>
+            <input type="number" class="form-control" id="solidos" placeholder="" name="solidos">
+        </div>
+        <div class="form-group">
+            <label for="pkilo">Precio por kilo:</label>
+            <input type="number" class="form-control" id="pkilo" placeholder="" name="pkilo">
+        </div>
+
+        <button type="button" id="calculo" class="btn btn-primary">Calcular</button>
+    </div><br>
+    <div class="container">
+        <div id="resultados">
+        </div>
+    </div>
+    <br><br>
+    <div class="container">
+        <div id="resultados2">
+        </div>
+    </div>
+    <!--Importamos el JS-->
+    <script src="js/main.js" type="text/javascript"></script>
+
+</body>
+
+</html>
