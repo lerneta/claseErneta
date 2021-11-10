@@ -1,14 +1,20 @@
 
-
+window.addEventListener('DOMContentLoaded',
+    function () {
+        console.log('El DOM  esta listo!');
+    })
 
 const cantidad_litros_input = document.getElementById('litros');
 const cantidad_rechazada_input = document.getElementById('litrosn');
 const porcentaje_materia_seca_input = document.getElementById('solidos');
 const precio_kilo_input = document.getElementById('pkilo');
-const calculo = document.getElementById('calculo');
 
-calculo.onclick = () => { calcularvalor() };
 
+$('#espacioboton').prepend('<button type="button" id="calculo" class="btn btn-primary">Calcular</button>');
+
+$('#calculo').click(function (e) {
+    calcularvalor();
+})
 let cantidad_litros;
 let cantidad_rechazada;
 let porcentaje_materia_seca;
@@ -76,9 +82,9 @@ function calcularvalor() {
     console.log(resultados);
 
     //Ultimo Valor ingresado
-    document.getElementById('resultados').innerHTML = `<p>La ganancia es de ${valor}</p>
+    $('#resultados').prepend(`<p>La ganancia es de ${valor}</p>
     <p>El porcentaje aprovechable es de ${porcentaje_aprovechable}%</p>
-    <p>El promedio de producción por animal es de ${promediov} litros</p>`;
+    <p>El promedio de producción por animal es de ${promediov} litros</p>`);
 
     //Anteriores
     mostrartodo();
@@ -95,5 +101,6 @@ function mostrartodo() {
         <p>El promedio de producción por animal es de ${resultados[i].promedio} litros</p>`;
         i++;
     }
-    document.getElementById('resultados2').innerHTML = registro;
+
+    $('#resultados2').prepend(registro);
 }
