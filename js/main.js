@@ -12,6 +12,18 @@ const precio_kilo_input = document.getElementById('pkilo');
 
 $('#espacioboton').prepend('<button type="button" id="calculo" class="btn btn-primary">Calcular</button>');
 
+
+$("#oc").click(function () {
+    if ($("#seccion1").first().is(":hidden")) {
+        $("#seccion1").slideDown("fast");
+        $("#result").removeClass("col-md-12").addClass("col-md-5");
+    } else {
+        $("#seccion1").hide();
+        $("#result").removeClass("col-md-5").addClass("col-md-12");
+    }
+});
+
+
 $('#calculo').click(function (e) {
     calcularvalor();
 })
@@ -81,11 +93,6 @@ function calcularvalor() {
 
     console.log(resultados);
 
-    //Ultimo Valor ingresado
-    $('#resultados').prepend(`<p>La ganancia es de ${valor}</p>
-    <p>El porcentaje aprovechable es de ${porcentaje_aprovechable}%</p>
-    <p>El promedio de producción por animal es de ${promediov} litros</p>`);
-
     //Anteriores
     mostrartodo();
 
@@ -93,14 +100,18 @@ function calcularvalor() {
 }
 
 function mostrartodo() {
+    document.getElementById('resultados2').innerHTML = "";
     let i = 0;
     let registro = "";
     while (i < resultados.length) {
-        registro = registro + `<h2>Registro ${i + 1}</h2><p>La ganancia es de $${resultados[i].ganancia}</p>
-        <p>El porcentaje aprovechable es de ${resultados[i].eficiencia}%</p>
-        <p>El promedio de producción por animal es de ${resultados[i].promedio} litros</p>`;
+        registro = registro + `<tr><td>${i + 1}</td><td> $${resultados[i].ganancia}</td>
+        <td> ${resultados[i].eficiencia}%</td>
+        <td> ${resultados[i].promedio} </td></tr>`;
         i++;
     }
 
     $('#resultados2').prepend(registro);
+
+
+
 }

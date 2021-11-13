@@ -6,44 +6,69 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Control de Tambo</title>
+
+    <!--Importación de estilos-->
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
 <body>
+    <div class="container"><br> <button id="oc" class="btn1 btn btn-primary">Esconder/Aparecer Formulario</button>
 
-
-    <div class="container">
-        <h2>Control de Rendimiento de la producción</h2>
-        <div class="form-group">
-            <label for="litros">Cantidad de litros obtenidos:</label>
-            <input type="number" class="form-control" id="litros" placeholder="" name="litros">
-        </div>
-        <div class="form-group">
-            <label for="litrosn">Cantidad de litros no utilizables:</label>
-            <input type="number" class="form-control" id="litrosn" placeholder="" name="litrosn">
-        </div>
-        <div class="form-group">
-            <label for="solidos">Porcentaje de sólidos:</label>
-            <input type="number" class="form-control" id="solidos" placeholder="" name="solidos">
-        </div>
-        <div class="form-group">
-            <label for="pkilo">Precio por kilo:</label>
-            <input type="number" class="form-control" id="pkilo" placeholder="" name="pkilo">
-        </div>
-
-
-        <div id="espacioboton"></div>
-
-    </div><br>
-    <div class="container">
-        <div id="resultados">
-        </div>
     </div>
-    <br><br>
-    <div class="container">
-        <div id="resultados2">
+
+    <div class="">
+        <div class="row">
+
+            <div class="col-6 form" id="seccion1">
+                <h2>Control de Rendimiento de la producción</h2>
+                <div class="form-group">
+                    <label for="litros">Cantidad de litros obtenidos:</label>
+                    <input type="number" class="form-control" id="litros" placeholder="" name="litros">
+                </div>
+                <div class="form-group">
+                    <label for="litrosn">Cantidad de litros no utilizables:</label>
+                    <input type="number" class="form-control" id="litrosn" placeholder="" name="litrosn">
+                </div>
+                <div class="form-group">
+                    <label for="solidos">Porcentaje de sólidos:</label>
+                    <input type="number" class="form-control" id="solidos" placeholder="" name="solidos">
+                </div>
+                <div class="form-group">
+                    <label for="pkilo">Precio por kilo:</label>
+                    <input type="number" class="form-control" id="pkilo" placeholder="" name="pkilo">
+                </div>
+
+
+                <div id="espacioboton"></div>
+
+            </div>
+
+            <div class="col-5" id="result">
+                <div class="">
+                    <div id="resultados">
+                    </div>
+                </div>
+                <br><br>
+                <div class="">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Ganancia</th>
+                                <th scope="col">Eficiencia</th>
+                                <th scope="col">Promedio x animal/ litros</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultados2">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
     <!--Importamos el JS-->
