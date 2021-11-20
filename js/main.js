@@ -4,6 +4,40 @@ window.addEventListener('DOMContentLoaded',
         console.log('El DOM  esta listo!');
     })
 
+$(document).ready(function () {
+    const APIURL = 'https://jsonplaceholder.typicode.com/posts';
+    const infoPost = { nombre: "Ana", profesion: "Programadora" }
+    $("body").prepend('<button id="btn1">ENVIAR</button>');
+    $("#btn1").click(() => {
+        $.ajax({
+            method: "POST",
+            url: APIURL,
+            data: infoPost,
+            success: function (respuesta) {
+                $("body").prepend(`<div>${respuesta.nombre}</div>`);
+            }
+        })
+    })
+
+})
+
+const Http = new XMLHttpRequest();
+const URLGET = 'https://jsonplaceholder.typicode.com/posts/1';
+const infopost = { nombre: "Ana", profesion: "Programadora" }
+$("body").prepend('<button id="btn1">POST</button>');
+$("#btn1").click(() => {
+    Http.open("GET", URLGET);
+    Http.send();
+
+    Http.onreadystatechange = (e) => {
+        console.log(Http.responseText)
+    }
+})
+
+
+
+
+
 const cantidad_litros_input = document.getElementById('litros');
 const cantidad_rechazada_input = document.getElementById('litrosn');
 const porcentaje_materia_seca_input = document.getElementById('solidos');
