@@ -1,4 +1,3 @@
-
 window.addEventListener('DOMContentLoaded',
     function () {
         console.log('El DOM  esta listo!');
@@ -7,7 +6,7 @@ window.addEventListener('DOMContentLoaded',
 $(document).ready(function () {
     const APIURL = 'https://jsonplaceholder.typicode.com/posts';
     const infoPost = { nombre: "Ana", profesion: "Programadora" }
-    $("body").prepend('<button id="btn1">ENVIAR</button>');
+    $("#navegacion").prepend('<a href="#" id="btn1">Enviar petición</a>');
     $("#btn1").click(() => {
         $.ajax({
             method: "POST",
@@ -24,8 +23,8 @@ $(document).ready(function () {
 const Http = new XMLHttpRequest();
 const URLGET = 'https://jsonplaceholder.typicode.com/posts/1';
 const infopost = { nombre: "Ana", profesion: "Programadora" }
-$("body").prepend('<button id="btn1">POST</button>');
-$("#btn1").click(() => {
+$("#navegacion").prepend('<a href="#" id="btn2">Enviar petición 2</a>');
+$("#btn2").click(() => {
     Http.open("GET", URLGET);
     Http.send();
 
@@ -87,7 +86,30 @@ establecimiento1.leer();
 
 const resultados = [];
 
+
+
 function calcularvalor() {
+
+    if (cantidad_litros_input.value == '') {
+        setTimeout(cantidad_litros_input.style.background = 'red', 5000);
+        return
+    }
+
+    if (cantidad_rechazada_input.value == '') {
+        setTimeout(cantidad_rechazada_input.style.background = 'red', 5000);
+        return
+    }
+
+    if (porcentaje_materia_seca_input.value == '' || porcentaje_materia_seca_input.value > 100) {
+        setTimeout(porcentaje_materia_seca_input.style.background = 'red', 5000);
+        return
+    }
+
+    if (precio_kilo_input.value == '') {
+        setTimeout(precio_kilo_input.style.background = 'red', 5000);
+        return
+    }
+
 
     cantidad_litros = cantidad_litros_input.value;
     cantidad_rechazada = cantidad_rechazada_input.value;
@@ -130,6 +152,15 @@ function calcularvalor() {
     //Anteriores
     mostrartodo();
 
+    cantidad_litros_input.value = "";
+    cantidad_rechazada_input.value = "";
+    porcentaje_materia_seca_input.value = "";
+    precio_kilo_input.value = "";
+
+    cantidad_litros_input.style.background = 'white';
+    cantidad_rechazada_input.style.background = 'white';
+    porcentaje_materia_seca_input.style.background = 'white';
+    precio_kilo_input.style.background = 'white';
 
 }
 
