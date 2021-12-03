@@ -3,6 +3,19 @@
     margin-left: 25px;
 }
 
+body{
+  overflow-x: hidden;
+}
+
+h2{
+  margin-top: 50px !important;
+  text-align:center;
+}
+
+div{
+  padding-left: 15px;
+}
+
 #resultados{
     margin-top: 45px;
 }
@@ -32,4 +45,9 @@
   .topnav a.active {
     background-color: #04AA6D;
     color: white;
+  }
+
+  #myfirstchart{
+ 
+    
   }

@@ -6,7 +6,7 @@ window.addEventListener('DOMContentLoaded',
 $(document).ready(function () {
     const APIURL = 'https://jsonplaceholder.typicode.com/posts';
     const infoPost = { nombre: "Ana", profesion: "Programadora" }
-    $("#navegacion").prepend('<a href="#" id="btn1">Enviar petición</a>');
+    //$("#navegacion").prepend('<a href="#" id="btn1">Enviar petición</a>');
     $("#btn1").click(() => {
         $.ajax({
             method: "POST",
@@ -23,7 +23,7 @@ $(document).ready(function () {
 const Http = new XMLHttpRequest();
 const URLGET = 'https://jsonplaceholder.typicode.com/posts/1';
 const infopost = { nombre: "Ana", profesion: "Programadora" }
-$("#navegacion").prepend('<a href="#" id="btn2">Enviar petición 2</a>');
+//$("#navegacion").prepend('<a href="#" id="btn2">Enviar petición 2</a>');
 $("#btn2").click(() => {
     Http.open("GET", URLGET);
     Http.send();
@@ -86,6 +86,11 @@ establecimiento1.leer();
 
 const resultados = [];
 
+const estadisticas = [];
+const produccion = [];
+let id = 0;
+
+
 
 
 function calcularvalor() {
@@ -145,7 +150,14 @@ function calcularvalor() {
         console.log("¡La producción superó el promedio diario del establecimiento!");
     }
 
+
+    id += 1;
     resultados.push({ ganancia: valor, eficiencia: porcentaje_aprovechable, promedio: promediov });
+    estadisticas.push({ id: id, ganancia: Math.round(valor) });
+    produccion.push({ id: id, promedio: Math.round(promediov) });
+
+    estadisticas.sort((a, b) => a - b)
+    produccion.sort((a, b) => a - b)
 
     console.log(resultados);
 
@@ -164,6 +176,7 @@ function calcularvalor() {
 
 }
 
+
 function mostrartodo() {
     document.getElementById('resultados2').innerHTML = "";
     let i = 0;
@@ -175,8 +188,48 @@ function mostrartodo() {
         i++;
     }
 
+    generarestadistica();
+
+
     $('#resultados2').prepend(registro);
 
+}
+
+function generarestadistica() {
+
+    document.getElementById('myfirstchart').innerHTML = '';
+    document.getElementById('myfirstchart2').innerHTML = '';
+
+    new Morris.Line({
+        element: 'myfirstchart',
+        data: produccion,
+        xkey: 'id',
+        ykeys: ['promedio'],
+        labels: ['id', 'promedio'],
+        fillOpacity: 0.6,
+        hideHover: 'auto',
+        behaveLikeLine: true,
+        resize: true,
+        pointFillColors: ['#ffffff'],
+        pointStrokeColors: ['black'],
+        lineColors: ['gray']
+    });
+
+    new Morris.Bar({
+        element: 'myfirstchart2',
+        data: estadisticas,
+        xkey: 'id',
+        ykeys: ['ganancia'],
+        labels: ['id', 'ganancia'],
+        fillOpacity: 0.6,
+        hideHover: 'auto',
+        behaveLikeLine: true,
+        resize: true,
+        pointFillColors: ['#ffffff'],
+        pointStrokeColors: ['black'],
+        lineColors: ['gray']
+    });
 
 
+    $('#myfirstchart').innerHTML = "";
 }

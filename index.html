@@ -13,12 +13,18 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 </head>
 
 <body>
     <div class="topnav" id="navegacion">
         <a class="active" id="oc">Esconder/Aparecer Formulario</a>
-
     </div>
     <div class="container"><br>
 
@@ -28,7 +34,7 @@
         <div class="row">
 
             <div class="col-6 form" id="seccion1">
-                <h2>Control de Rendimiento de la producción</h2>
+                <h2>Control de Rendimiento de la producción</h2><br />
                 <div class="form-group">
                     <label for="litros">Cantidad de litros obtenidos:</label>
                     <input type="number" class="form-control" id="litros" placeholder="" name="litros">
@@ -73,8 +79,17 @@
                     </table>
                 </div>
             </div>
+            <div class="col-6">
+                <h2>Evolución Promedio</h2>
+                <div id="myfirstchart" style="margin-bottom: 25px;"></div>
+            </div>
+            <div class="col-6">
+                <h2>Relación ganancia</h2>
+                <div id="myfirstchart2" style="margin-bottom: 25px;"></div>
+            </div>
         </div>
     </div>
+
     <!--Importamos el JS-->
     <script src="js/main.js" type="text/javascript"></script>
 
